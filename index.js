@@ -3,6 +3,7 @@ const http = require("http"),
       express = require("express"),
       bodyParser = require("body-parser"),
       mongoose = require("mongoose");
+      res.write("Hello World")
 
 let app = express();
 let port =  8000;
