@@ -3,13 +3,13 @@ const http = require("http"),
       express = require("express"),
       bodyParser = require("body-parser"),
       mongoose = require("mongoose");
-      res.write("Hello World")
+      
 
 let app = express();
 let port =  8000;
 
+app.use(bodyParser.json());
 app.use(require('./routes'));
-app.use(bodyParser.json()); 
 app.use(logger("tiny"));
 
 mongoose.connect('mongodb://localhost/test');
