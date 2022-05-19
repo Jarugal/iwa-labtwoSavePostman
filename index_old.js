@@ -16,3 +16,28 @@ http.createServer((req, res)=>{
         console.log(error)
     }
 })()
+
+const dbURI = "mongodb://localhost/test";
+
+mongoose.connect(dbURI, {useNewUrlParser: true, 
+useUnifiedTopology: true })
+        .then((result)=>console.log('connected to db'))
+        .catch((err)=>console.log(err));
+
+app.listen(port, function(err){
+    console.log("Listening on port:" +port)
+});
+
+mongoose.connect('mongodb://localhost/test');
+
+mongoose.connection.on('error', (err)=>{
+    console.log('Mongodb Error: ', err);
+    process.exit();
+});
+mongoose.connection.on('connected', ()=>{
+    console.log('Mongodb is successfully connected');
+});
+
+app.listen(port, function(err){
+    console.log("Listening on port: " + port)
+});
